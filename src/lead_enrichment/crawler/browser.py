@@ -77,13 +77,13 @@ class BrowserCrawler:
         if self._pw:
             self._pw.stop()
 
-    def fetch_html(self, url: str) -> tuple[PageDocument, str]:
+    def fetch_html(self, url: str, *, settle: bool = True) -> tuple[PageDocument, str]:
         """Return page metadata plus raw HTML. Callers must convert HTML to markdown before any LLM call."""
         last_error = "unknown fetch error"
         html = ""
         for attempt in range(self.retries + 1):
             try:
-                return self._fetch_once(url)
+                return self._fetch_once(url, settle=settle)
             except PlaywrightTimeout:
                 last_error = f"timeout after {self.timeout_ms}ms"
             except Exception as exc:  # noqa: BLE001 — isolate one domain from the rest
@@ -92,15 +92,18 @@ class BrowserCrawler:
                 time.sleep(1.5 * (attempt + 1))
         return PageDocument(url=url, error=last_error), html
 
-    def _fetch_once(self, url: str) -> tuple[PageDocument, str]:
+    def _fetch_once(self, url: str, *, settle: bool = True) -> tuple[PageDocument, str]:
         assert self._context is not None
         page = self._context.new_page()
         try:
             response = page.goto(url, wait_until="domcontentloaded")
-            try:
-                page.wait_for_load_state("networkidle", timeout=min(self.timeout_ms, 12_000))
-            except PlaywrightTimeout:
-                pass
+            if settle:
+                try:
+                    page.wait_for_load_state("networkidle", timeout=min(self.timeout_ms, 12_000))
+                except PlaywrightTimeout:
+                    pass
+            else:
+                page.wait_for_timeout(1200)
             status = response.status if response else None
             title = page.title() or ""
             html = page.content()

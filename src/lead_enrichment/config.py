@@ -13,6 +13,10 @@ class Settings(BaseSettings):
 
     gemini_api_key: str = Field(default="", alias="GEMINI_API_KEY")
     gemini_model: str = Field(default="gemini-2.5-flash", alias="GEMINI_MODEL")
+    gemini_fallback_models: str = Field(
+        default="gemini-flash-latest,gemini-flash-lite-latest",
+        alias="GEMINI_FALLBACK_MODELS",
+    )
     gemini_input_usd_per_1m: float = Field(default=0.15, alias="GEMINI_INPUT_USD_PER_1M")
     gemini_output_usd_per_1m: float = Field(default=0.60, alias="GEMINI_OUTPUT_USD_PER_1M")
 

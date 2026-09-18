@@ -125,6 +125,12 @@
         "candidate_tokens": 1791,
         "total_tokens": 22629,
         "estimated_cost_usd": 0.002292
+      },
+      "linkedin_search": {
+        "attempted": false,
+        "queries": 0,
+        "filled": [],
+        "still_missing": []
       }
     },
     {
@@ -144,7 +150,7 @@
         {
           "name": "Paul Copplestone",
           "role": null,
-          "linkedin_url": null,
+          "linkedin_url": "https://www.linkedin.com/in/paulcopplestone",
           "evidence": {
             "source_url": "https://supabase.com/company",
             "quote": "Elixir at Supabase with Paul Copplestone",
@@ -162,15 +168,15 @@
           }
         }
       ],
-      "data_confidence_score": 0.9,
+      "data_confidence_score": 0.95,
       "confidence_breakdown": {
         "fill_rate": 1.0,
         "verified_evidence_rate": 1.0,
         "source_diversity": 1.0,
         "email_confirmation": 1.0,
-        "linkedin_validity": 0.0,
+        "linkedin_validity": 0.5,
         "contradiction_penalty": 0.0,
-        "score": 0.9
+        "score": 0.95
       },
       "evidence": {
         "company_overview": {
@@ -236,6 +242,16 @@
         "candidate_tokens": 1478,
         "total_tokens": 14536,
         "estimated_cost_usd": 0.001804
+      },
+      "linkedin_search": {
+        "attempted": true,
+        "queries": 2,
+        "filled": [
+          "Paul Copplestone"
+        ],
+        "still_missing": [
+          "Tracy Lane"
+        ]
       }
     },
     {
@@ -339,6 +355,16 @@
         "candidate_tokens": 1149,
         "total_tokens": 84654,
         "estimated_cost_usd": 0.002204
+      },
+      "linkedin_search": {
+        "attempted": true,
+        "queries": 3,
+        "filled": [],
+        "still_missing": [
+          "Jason Mitura",
+          "Nathalie Criou",
+          "Jayson Noland"
+        ]
       }
     }
   ],

@@ -15,7 +15,7 @@ Rules:
 - company_overview must be exactly two sentences grounded in the text.
 - target_audience_icp is who the product is for, grounded in the text.
 - contact_emails: only addresses that appear in the text (including mailto).
-- leadership: only people named on the page with a role if present.
+- leadership: ONLY current employees, founders, or executives OF THIS COMPANY. Do not include customers, case-study speakers, partners, or people whose title names another company.
 - Every non-null field MUST include evidence.source_url matching the current page URL and a verbatim quote from the text that supports the claim.
 - If a field is not supported, return null / empty lists. Prefer omission over guessing.
 - Ignore cookie banners, navigation chrome, and legal boilerplate.
@@ -47,21 +47,32 @@ class GeminiClient:
             "regex_linkedin_urls_on_pages": regex_linkedin,
             "page_markdown": page.markdown,
         }
-        response = self.client.models.generate_content(
-            model=self.model,
-            contents=[
-                EXTRACT_INSTRUCTIONS,
-                json.dumps(payload, ensure_ascii=False),
-            ],
-            config=types.GenerateContentConfig(
-                temperature=0.1,
-                response_mime_type="application/json",
-                response_schema=LLMExtraction,
-            ),
-        )
-        usage = self._usage(response)
-        parsed = _parse_extraction(response)
-        return parsed, usage
+        last_error: Exception | None = None
+        for model in _model_chain(self.settings):
+            try:
+                response = self.client.models.generate_content(
+                    model=model,
+                    contents=[
+                        EXTRACT_INSTRUCTIONS,
+                        json.dumps(payload, ensure_ascii=False),
+                    ],
+                    config=types.GenerateContentConfig(
+                        temperature=0.1,
+                        response_mime_type="application/json",
+                        response_schema=LLMExtraction,
+                    ),
+                )
+                self.model = model
+                usage = self._usage(response)
+                parsed = _parse_extraction(response)
+                return parsed, usage
+            except Exception as exc:  # noqa: BLE001
+                last_error = exc
+                message = str(exc).lower()
+                if not any(token in message for token in ("429", "resource_exhausted", "quota", "unavailable", "503")):
+                    raise
+                continue
+        raise last_error or RuntimeError("Gemini extract failed")
 
     def _usage(self, response: object) -> TokenUsage:
         meta = getattr(response, "usage_metadata", None)
@@ -79,6 +90,15 @@ class GeminiClient:
             total_tokens=total,
             estimated_cost_usd=round(cost, 6),
         )
+
+
+def _model_chain(settings: Settings) -> list[str]:
+    models = [settings.gemini_model]
+    for item in settings.gemini_fallback_models.split(","):
+        name = item.strip()
+        if name and name not in models:
+            models.append(name)
+    return models
 
 
 def _parse_extraction(response: object) -> LLMExtraction:

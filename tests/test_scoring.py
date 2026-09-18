@@ -3,7 +3,8 @@ from lead_enrichment.scoring.confidence import compute_confidence, result_status
 from lead_enrichment.scoring.evidence import lock_evidence, quote_supported
 from lead_enrichment.scoring.facts import extract_emails, valid_linkedin_url
 from lead_enrichment.models import DomainResult, LeadershipPerson
-from lead_enrichment.llm.search import _best_hit
+from lead_enrichment.llm.search import _best_hit, _unwrap
+from lead_enrichment.scoring.leadership import is_internal_leader
 
 
 def test_quote_supported_requires_verbatim_span() -> None:
@@ -168,3 +169,31 @@ def test_best_hit_matches_slug_or_full_name() -> None:
     )
     assert slug_only is not None
     assert _best_hit(hits, "Totally Unknown") is None
+
+
+def test_unwrap_duckduckgo_redirect() -> None:
+    raw = "https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fabhinavasthana"
+    assert "linkedin.com/in/abhinavasthana" in _unwrap(raw)
+
+
+def test_internal_leader_keeps_founders_drops_customers() -> None:
+    founder = LeadershipPerson(
+        name="Abhinav Asthana",
+        role="CEO and co-founder",
+        evidence=EvidenceSpan(
+            source_url="https://www.postman.com/company/about-postman/",
+            quote="Abhinav Asthana, Postman's CEO and co-founder",
+            verified=True,
+        ),
+    )
+    customer = LeadershipPerson(
+        name="Seth Siegler",
+        role="Chief Innovation Officer, eXp Realty",
+        evidence=EvidenceSpan(
+            source_url="https://supabase.com/company",
+            quote="Seth Siegler, Chief Innovation Officer, eXp Realty",
+            verified=True,
+        ),
+    )
+    assert is_internal_leader(founder, "postman.com") is True
+    assert is_internal_leader(customer, "supabase.com") is False

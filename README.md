@@ -9,7 +9,7 @@ This is the take-home for SoftwareBrio's AI Engineer Intern role.
 The brief allows “an LLM of your choice.” Gemini 2.5 Flash is used because a **single** provider covers all three bonuses without extra keys or scraping Google SERPs:
 
 1. Native JSON `response_schema` (Pydantic structured output).
-2. **Google Search grounding** for missing leadership LinkedIn URLs (`ENABLE_LINKEDIN_SEARCH=true` by default).
+2. **LinkedIn backfill**: Playwright searches DuckDuckGo/Bing for `{name} {company} linkedin`, then Gemini Google Search grounding if the SERP has no match (`ENABLE_LINKEDIN_SEARCH=true` by default).
 3. Usage metadata for per-domain token + USD cost tracking.
 
 The crawl loop is a custom information-gain planner (`agent/planner.py`: missing fields → score links → fetch → extract → stop), which is the spec’s “custom multi-step tool-calling loop” — not LangGraph.

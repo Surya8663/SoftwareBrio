@@ -9,6 +9,7 @@ from lead_enrichment.crawler.clean import html_to_markdown
 from lead_enrichment.crawler.discover import discover_candidates
 from lead_enrichment.llm.gemini_client import GeminiClient
 from lead_enrichment.llm.search import fill_missing_linkedin
+from lead_enrichment.scoring.leadership import is_internal_leader
 from lead_enrichment.models import (
     CandidateLink,
     DomainResult,
@@ -74,6 +75,10 @@ def enrich_one(
 
     seed = CandidateLink(url=homepage, score=1.0, reason="homepage")
     pending.append(seed)
+    for path in ("/about", "/about-us", "/company", "/team", "/contact", "/contact-us"):
+        pending.append(
+            CandidateLink(url=homepage.rstrip("/") + path, score=0.85, reason="seed")
+        )
 
     while not should_stop(
         len(pages),
@@ -90,8 +95,9 @@ def enrich_one(
         pending = [c for c in pending if c.url not in visited]
         doc, html = crawler.fetch_html(nxt.url)
         if doc.error:
-            errors.append(f"{nxt.url}: {doc.error}")
-            if doc.blocked or not html:
+            if "http_404" not in doc.error:
+                errors.append(f"{nxt.url}: {doc.error}")
+            if doc.blocked or not html or "http_404" in doc.error:
                 history.append(snapshot())
                 continue
         markdown = html_to_markdown(html, settings.max_chars_per_page) if html else ""
@@ -175,6 +181,15 @@ def enrich_one(
             ev = lock_evidence(person.evidence, pages)
             if ev is None:
                 continue
+            if not is_internal_leader(
+                LeadershipPerson(
+                    name=person.name.strip(),
+                    role=(person.role or None),
+                    evidence=ev,
+                ),
+                domain,
+            ):
+                continue
             linkedin = person.linkedin_url if valid_linkedin_url(person.linkedin_url) else None
             if linkedin and linkedin not in regex_linkedin:
                 # URL must appear in crawled text to count as on-site.
@@ -200,7 +215,7 @@ def enrich_one(
     ):
         try:
             leadership, search_usage, search_report = fill_missing_linkedin(
-                llm, domain, leadership
+                domain, leadership, crawler, llm
             )
             usage = usage.add(search_usage)
         except Exception as exc:  # noqa: BLE001
