@@ -2,6 +2,7 @@ from pathlib import Path
 
 import typer
 
+from lead_enrichment import __version__
 from lead_enrichment.config import load_settings
 from lead_enrichment.models import RunReport
 
@@ -18,6 +19,12 @@ def _parse_domains(raw: str) -> list[str]:
     if not parts:
         raise typer.BadParameter("Provide at least one domain.")
     return parts
+
+
+@app.command()
+def version() -> None:
+    """Print the package version."""
+    typer.echo(__version__)
 
 
 @app.command()
