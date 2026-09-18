@@ -34,6 +34,7 @@ def fill_missing_linkedin(
         url = search_profile_url(crawler, person.name, domain, person.role)
         if valid_linkedin_url(url):
             filled[person.name] = str(url).split("?")[0].rstrip("/")
+            time.sleep(1.2)
             continue
         if llm is not None:
             gemini_url, step = _gemini_one(llm, domain, person)
