@@ -9,8 +9,8 @@
       "domain": "postman.com",
       "homepage_url": "https://postman.com",
       "status": "ok",
-      "company_overview": "Postman is an AI-native API Platform that helps develop, test, manage, and distribute APIs and services. It is designed for enterprise scale and built for engineers.",
-      "target_audience_icp": "The product is built for engineers and designed for enterprise scale.",
+      "company_overview": "Postman is the world's leading API platform designed for developing, testing, managing, and distributing APIs and services. It features an AI-native platform built for engineers and designed for enterprise scale.",
+      "target_audience_icp": "Engineers and enterprise organizations building and shipping APIs.",
       "contact_points": [
         "info@postman.com",
         "info-jp@postman.com"
@@ -19,7 +19,7 @@
         {
           "name": "Kin Lane",
           "role": "Chief Evangelist",
-          "linkedin_url": "https://www.linkedin.com/in/kinlane",
+          "linkedin_url": null,
           "evidence": {
             "source_url": "https://www.postman.com/company/press-media/",
             "quote": "Postman’s Chief Evangelist Kin Lane Releases New Book on the API-First Transformation",
@@ -29,7 +29,7 @@
         {
           "name": "Abhinav Asthana",
           "role": "CEO and co-founder",
-          "linkedin_url": "https://www.linkedin.com/in/abhinavasthana",
+          "linkedin_url": null,
           "evidence": {
             "source_url": "https://www.postman.com/company/about-postman/",
             "quote": "Abhinav Asthana, Postman's CEO and co-founder, set out to create a tool that would simplify the API testing process.",
@@ -39,38 +39,38 @@
         {
           "name": "Ankit Sobti",
           "role": "co-founder",
-          "linkedin_url": "https://www.linkedin.com/in/ankitsobti",
+          "linkedin_url": null,
           "evidence": {
             "source_url": "https://www.postman.com/company/about-postman/",
-            "quote": "Abhinav recruited two of his former colleagues, Ankit Sobti and Abhijit Kane, to help him create Postman, Inc. Postman is now the world's leading API platform, and the three founders still lead the company to this day.",
+            "quote": "Abhinav recruited two of his former colleagues, Ankit Sobti and Abhijit Kane, to help him create Postman, Inc.",
             "verified": true
           }
         },
         {
           "name": "Abhijit Kane",
           "role": "co-founder",
-          "linkedin_url": "https://www.linkedin.com/in/abhijitkane",
+          "linkedin_url": null,
           "evidence": {
             "source_url": "https://www.postman.com/company/about-postman/",
-            "quote": "Abhinav recruited two of his former colleagues, Ankit Sobti and Abhijit Kane, to help him create Postman, Inc. Postman is now the world's leading API platform, and the three founders still lead the company to this day.",
+            "quote": "Abhinav recruited two of his former colleagues, Ankit Sobti and Abhijit Kane, to help him create Postman, Inc.",
             "verified": true
           }
         }
       ],
-      "data_confidence_score": 1.0,
+      "data_confidence_score": 0.9,
       "confidence_breakdown": {
         "fill_rate": 1.0,
         "verified_evidence_rate": 1.0,
         "source_diversity": 1.0,
         "email_confirmation": 1.0,
-        "linkedin_validity": 1.0,
+        "linkedin_validity": 0.0,
         "contradiction_penalty": 0.0,
-        "score": 1.0
+        "score": 0.9
       },
       "evidence": {
         "company_overview": {
           "source_url": "https://www.postman.com/",
-          "quote": "The AI-native API Platform Develop, test, manage, and distribute APIs and services. Built for engineers. Designed for enterprise scale.",
+          "quote": "The AI-native API Platform\n\nDevelop, test, manage, and distribute APIs and services. Built for engineers. Designed for enterprise scale.",
           "verified": true
         },
         "target_audience_icp": {
@@ -103,12 +103,12 @@
           },
           {
             "source_url": "https://www.postman.com/company/about-postman/",
-            "quote": "Abhinav recruited two of his former colleagues, Ankit Sobti and Abhijit Kane, to help him create Postman, Inc. Postman is now the world's leading API platform, and the three founders still lead the company to this day.",
+            "quote": "Abhinav recruited two of his former colleagues, Ankit Sobti and Abhijit Kane, to help him create Postman, Inc.",
             "verified": true
           },
           {
             "source_url": "https://www.postman.com/company/about-postman/",
-            "quote": "Abhinav recruited two of his former colleagues, Ankit Sobti and Abhijit Kane, to help him create Postman, Inc. Postman is now the world's leading API platform, and the three founders still lead the company to this day.",
+            "quote": "Abhinav recruited two of his former colleagues, Ankit Sobti and Abhijit Kane, to help him create Postman, Inc.",
             "verified": true
           }
         ]
@@ -120,105 +120,143 @@
       ],
       "errors": [],
       "token_usage": {
-        "model": "gemini-2.5-flash",
-        "prompt_tokens": 8116,
-        "candidate_tokens": 1791,
-        "total_tokens": 22629,
-        "estimated_cost_usd": 0.002292
+        "model": "gemini-3.5-flash-lite",
+        "prompt_tokens": 8003,
+        "candidate_tokens": 1188,
+        "total_tokens": 9191,
+        "estimated_cost_usd": 0.001914
+      },
+      "linkedin_search": {
+        "attempted": true,
+        "queries": 4,
+        "filled": [],
+        "still_missing": [
+          "Kin Lane",
+          "Abhinav Asthana",
+          "Ankit Sobti",
+          "Abhijit Kane"
+        ]
       }
     },
     {
       "domain": "supabase.com",
       "homepage_url": "https://supabase.com",
       "status": "ok",
-      "company_overview": "Supabase offers scalable features that can accelerate business growth and app development. Businesses can book a demo and set up a trial Enterprise account to see these features.",
-      "target_audience_icp": "Businesses and developers seeking to accelerate their growth and app development, particularly those interested in enterprise accounts.",
-      "contact_points": [
-        "legal@supabase.com",
-        "privacy@supabase.com",
-        "abuse@supabase.com",
-        "security@supabase.com",
-        "help-events@supabase.com"
-      ],
+      "company_overview": "Supabase is a Postgres development platform providing a full relational database, authentication, edge functions, storage, realtime capabilities, and vector search. It allows developers to build applications with features like instant REST APIs, custom code execution, and data synchronization without vendor lock-in.",
+      "target_audience_icp": "Developers, solo founders, and companies ranging from startups to high-performance SaaS applications looking for a backend platform built on PostgreSQL.",
+      "contact_points": [],
       "key_leadership": [
         {
-          "name": "Paul Copplestone",
-          "role": null,
+          "name": "Bryan Byrne",
+          "role": "Product Manager, Lovable",
           "linkedin_url": null,
           "evidence": {
-            "source_url": "https://supabase.com/company",
-            "quote": "Elixir at Supabase with Paul Copplestone",
+            "source_url": "https://supabase.com/",
+            "quote": "Bryan Byrne, Product Manager, Lovable",
             "verified": true
           }
         },
         {
-          "name": "Tracy Lane",
-          "role": "General Counsel of Supabase, Inc.",
+          "name": "Seth Siegler",
+          "role": "Chief Innovation Officer, eXp Realty",
           "linkedin_url": null,
           "evidence": {
-            "source_url": "https://supabase.com/contact-us",
-            "quote": "Attn: Tracy LaneIn jurisdictions that require the designation of a Grievance Officer or similar compliance contact, Tracy Lane, General Counsel of Supabase, Inc., serves in that role.",
+            "source_url": "https://supabase.com/",
+            "quote": "Seth Siegler, Chief Innovation Officer, eXp Realty",
+            "verified": true
+          }
+        },
+        {
+          "name": "Kris Woods",
+          "role": "CTO, Phoenix Energy",
+          "linkedin_url": null,
+          "evidence": {
+            "source_url": "https://supabase.com/",
+            "quote": "Kris Woods, CTO, Phoenix Energy",
+            "verified": true
+          }
+        },
+        {
+          "name": "Yasser Elsaid",
+          "role": "Founder and CEO, Chatbase",
+          "linkedin_url": null,
+          "evidence": {
+            "source_url": "https://supabase.com/",
+            "quote": "Yasser Elsaid, Founder and CEO, Chatbase",
+            "verified": true
+          }
+        },
+        {
+          "name": "Thiago Peres",
+          "role": "Founder & CTO, Rally",
+          "linkedin_url": null,
+          "evidence": {
+            "source_url": "https://supabase.com/",
+            "quote": "Thiago Peres, Founder & CTO, Rally",
+            "verified": true
+          }
+        },
+        {
+          "name": "Jakob Steinn",
+          "role": "Co-founder & Tech Lead",
+          "linkedin_url": null,
+          "evidence": {
+            "source_url": "https://supabase.com/contact/sales",
+            "quote": "Jakob Steinn, Co-founder & Tech Lead, Good Tape",
             "verified": true
           }
         }
       ],
-      "data_confidence_score": 0.9,
+      "data_confidence_score": 0.625,
       "confidence_breakdown": {
-        "fill_rate": 1.0,
+        "fill_rate": 0.75,
         "verified_evidence_rate": 1.0,
-        "source_diversity": 1.0,
-        "email_confirmation": 1.0,
+        "source_diversity": 0.667,
+        "email_confirmation": 0.0,
         "linkedin_validity": 0.0,
         "contradiction_penalty": 0.0,
-        "score": 0.9
+        "score": 0.625
       },
       "evidence": {
         "company_overview": {
-          "source_url": "https://supabase.com/contact/sales",
-          "quote": "Book a demo and set up a trial Enterprise account to see how Supabase's scalable features can accelerate your business growth and app development.",
+          "source_url": "https://supabase.com/",
+          "quote": "Every project is a full Postgres database, the world's most trusted relational database.",
           "verified": true
         },
         "target_audience_icp": {
-          "source_url": "https://supabase.com/contact/sales",
-          "quote": "Book a demo and set up a trial Enterprise account to see how Supabase's scalable features can accelerate your business growth and app development.",
+          "source_url": "https://supabase.com/",
+          "quote": "Trusted by fast-growing companies worldwide",
           "verified": true
         },
-        "contact_points": [
-          {
-            "source_url": "https://supabase.com/contact-us",
-            "quote": "s, or how Supabase processes personal information.\n\n## Abuse & Acceptable Use\n\n[abuse@supabase.com](mailto:abuse@supabase.com)\n\nTo report suspected violations of our [Acceptable",
-            "verified": true
-          },
-          {
-            "source_url": "https://supabase.com/contact-us",
-            "quote": "security incidents involving Supabase infrastructure or services.\n\n## Events\n\n[help-events@supabase.com](mailto:help-events@supabase.com)\n\nFor hackathon or event sponsorship requests.",
-            "verified": true
-          },
-          {
-            "source_url": "https://supabase.com/contact-us",
-            "quote": "he right channel below so we can get you to the right team quickly.\n\n## Legal\n\n[legal@supabase.com](mailto:legal@supabase.com)\n\nFor general legal inquiries.\n\n## Privacy\n\n[privacy",
-            "verified": true
-          },
-          {
-            "source_url": "https://supabase.com/contact-us",
-            "quote": "ase.com](mailto:legal@supabase.com)\n\nFor general legal inquiries.\n\n## Privacy\n\n[privacy@supabase.com](mailto:privacy@supabase.com)\n\nFor questions about personal data, data subject",
-            "verified": true
-          },
-          {
-            "source_url": "https://supabase.com/contact-us",
-            "quote": "hing, malware, or unlawful activity involving Supabase services.\n\n## Security\n\n[security@supabase.com](mailto:security@supabase.com)\n\nTo responsibly disclose potential security vuln",
-            "verified": true
-          }
-        ],
         "key_leadership": [
           {
-            "source_url": "https://supabase.com/company",
-            "quote": "Elixir at Supabase with Paul Copplestone",
+            "source_url": "https://supabase.com/",
+            "quote": "Bryan Byrne, Product Manager, Lovable",
             "verified": true
           },
           {
-            "source_url": "https://supabase.com/contact-us",
-            "quote": "Attn: Tracy LaneIn jurisdictions that require the designation of a Grievance Officer or similar compliance contact, Tracy Lane, General Counsel of Supabase, Inc., serves in that role.",
+            "source_url": "https://supabase.com/",
+            "quote": "Seth Siegler, Chief Innovation Officer, eXp Realty",
+            "verified": true
+          },
+          {
+            "source_url": "https://supabase.com/",
+            "quote": "Kris Woods, CTO, Phoenix Energy",
+            "verified": true
+          },
+          {
+            "source_url": "https://supabase.com/",
+            "quote": "Yasser Elsaid, Founder and CEO, Chatbase",
+            "verified": true
+          },
+          {
+            "source_url": "https://supabase.com/",
+            "quote": "Thiago Peres, Founder & CTO, Rally",
+            "verified": true
+          },
+          {
+            "source_url": "https://supabase.com/contact/sales",
+            "quote": "Jakob Steinn, Co-founder & Tech Lead, Good Tape",
             "verified": true
           }
         ]
@@ -226,27 +264,37 @@
       "pages_visited": [
         "https://supabase.com/",
         "https://supabase.com/company",
-        "https://supabase.com/contact/sales",
-        "https://supabase.com/contact-us"
+        "https://supabase.com/contact/sales"
       ],
       "errors": [],
       "token_usage": {
-        "model": "gemini-2.5-flash",
-        "prompt_tokens": 6113,
-        "candidate_tokens": 1478,
-        "total_tokens": 14536,
-        "estimated_cost_usd": 0.001804
+        "model": "gemini-3.5-flash-lite",
+        "prompt_tokens": 5448,
+        "candidate_tokens": 981,
+        "total_tokens": 6429,
+        "estimated_cost_usd": 0.001406
+      },
+      "linkedin_search": {
+        "attempted": true,
+        "queries": 6,
+        "filled": [],
+        "still_missing": [
+          "Bryan Byrne",
+          "Seth Siegler",
+          "Kris Woods",
+          "Yasser Elsaid",
+          "Thiago Peres",
+          "Jakob Steinn"
+        ]
       }
     },
     {
       "domain": "vapi.ai",
       "homepage_url": "https://vapi.ai",
       "status": "ok",
-      "company_overview": "Vapi provides a platform for building and deploying voice AI agents, as showcased by their product updates and insights. Their offerings include tools for scaling outbound calling, testing voice agents, and ensuring enterprise-grade audio security.",
-      "target_audience_icp": "Vapi's product is built for enterprises and developers seeking to deploy voice AI solutions at scale, including those in healthcare, automotive, and call center industries.",
-      "contact_points": [
-        "talent@vapi.ai"
-      ],
+      "company_overview": "Vapi provides a unified platform for builders to create, deploy, and scale advanced voice AI agents. It handles infrastructure, orchestration, and real-time monitoring so developers can go from prompt to production fast.",
+      "target_audience_icp": "Builders and enterprise developers looking to build, test, deploy, and scale voice agents for use cases like customer support, lead qualification, and appointment scheduling.",
+      "contact_points": [],
       "key_leadership": [
         {
           "name": "Jason Mitura",
@@ -254,73 +302,51 @@
           "linkedin_url": null,
           "evidence": {
             "source_url": "https://vapi.ai/",
-            "quote": "Jason Mitura VP of Software Development",
+            "quote": "Jason Mitura\n\nVP of Software Development",
             "verified": true
           }
         },
         {
-          "name": "Nathalie Criou",
-          "role": "VP of Product",
+          "name": "Alejandro Maza",
+          "role": "Chief Product & AI Officer, Kavak",
           "linkedin_url": null,
           "evidence": {
-            "source_url": "https://vapi.ai/blog",
-            "quote": "Driving the future of Voice: Meet Vapi's New VP of Product",
-            "verified": true
-          }
-        },
-        {
-          "name": "Jayson Noland",
-          "role": "CFO",
-          "linkedin_url": null,
-          "evidence": {
-            "source_url": "https://vapi.ai/blog",
-            "quote": "Meet Jayson Noland, Vapi's New CFO and The Numbers Leader Betting Big on Voice",
+            "source_url": "https://vapi.ai/",
+            "quote": "Alejandro Maza,\nChief Product & AI Officer, Kavak",
             "verified": true
           }
         }
       ],
-      "data_confidence_score": 0.9,
+      "data_confidence_score": 0.575,
       "confidence_breakdown": {
-        "fill_rate": 1.0,
+        "fill_rate": 0.75,
         "verified_evidence_rate": 1.0,
-        "source_diversity": 1.0,
-        "email_confirmation": 1.0,
+        "source_diversity": 0.333,
+        "email_confirmation": 0.0,
         "linkedin_validity": 0.0,
         "contradiction_penalty": 0.0,
-        "score": 0.9
+        "score": 0.575
       },
       "evidence": {
         "company_overview": {
-          "source_url": "https://vapi.ai/blog",
-          "quote": "Introducing Vapi CLI: The Best Developer Experience for Building Voice AI Agents",
+          "source_url": "https://vapi.ai/",
+          "quote": "Your agents, your rules. Build, deploy, and improve voice agents as fast as you ship.",
           "verified": true
         },
         "target_audience_icp": {
-          "source_url": "https://vapi.ai/blog",
-          "quote": "Introducing Enhanced Security Mode: Enterprise-Grade Audio Security for Voice AI",
+          "source_url": "https://vapi.ai/",
+          "quote": "Voice agents for builders",
           "verified": true
         },
-        "contact_points": [
-          {
-            "source_url": "https://vapi.ai/careers",
-            "quote": "sonal development.\n\n## Want to be the change in voice technology?\n\nReach out to[Talent@vapi.ai](mailto:Talent@vapi.ai)to speak to our Talent team.",
-            "verified": true
-          }
-        ],
         "key_leadership": [
           {
             "source_url": "https://vapi.ai/",
-            "quote": "Jason Mitura VP of Software Development",
+            "quote": "Jason Mitura\n\nVP of Software Development",
             "verified": true
           },
           {
-            "source_url": "https://vapi.ai/blog",
-            "quote": "Driving the future of Voice: Meet Vapi's New VP of Product",
-            "verified": true
-          },
-          {
-            "source_url": "https://vapi.ai/blog",
-            "quote": "Meet Jayson Noland, Vapi's New CFO and The Numbers Leader Betting Big on Voice",
+            "source_url": "https://vapi.ai/",
+            "quote": "Alejandro Maza,\nChief Product & AI Officer, Kavak",
             "verified": true
           }
         ]
@@ -328,25 +354,32 @@
       "pages_visited": [
         "https://vapi.ai/",
         "https://vapi.ai/pricing",
-        "https://vapi.ai/customers",
-        "https://vapi.ai/careers",
-        "https://vapi.ai/blog"
+        "https://vapi.ai/customers"
       ],
       "errors": [],
       "token_usage": {
-        "model": "gemini-2.5-flash",
-        "prompt_tokens": 10090,
-        "candidate_tokens": 1149,
-        "total_tokens": 84654,
-        "estimated_cost_usd": 0.002204
+        "model": "gemini-3.5-flash-lite",
+        "prompt_tokens": 4442,
+        "candidate_tokens": 558,
+        "total_tokens": 5000,
+        "estimated_cost_usd": 0.001
+      },
+      "linkedin_search": {
+        "attempted": true,
+        "queries": 2,
+        "filled": [],
+        "still_missing": [
+          "Jason Mitura",
+          "Alejandro Maza"
+        ]
       }
     }
   ],
   "token_usage": {
-    "model": "gemini-2.5-flash",
-    "prompt_tokens": 24319,
-    "candidate_tokens": 4418,
-    "total_tokens": 121819,
-    "estimated_cost_usd": 0.0063
+    "model": "gemini-3.5-flash-lite",
+    "prompt_tokens": 17893,
+    "candidate_tokens": 2727,
+    "total_tokens": 20620,
+    "estimated_cost_usd": 0.00432
   }
 }
