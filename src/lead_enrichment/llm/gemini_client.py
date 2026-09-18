@@ -50,17 +50,16 @@ class GeminiClient:
         last_error: Exception | None = None
         for model in _model_chain(self.settings):
             try:
-                response = self.client.models.generate_content(
+                chat = self.client.chats.create(
                     model=model,
-                    contents=[
-                        EXTRACT_INSTRUCTIONS,
-                        json.dumps(payload, ensure_ascii=False),
-                    ],
                     config=types.GenerateContentConfig(
                         temperature=0.1,
                         response_mime_type="application/json",
                         response_schema=LLMExtraction,
                     ),
+                )
+                response = chat.send_message(
+                    [EXTRACT_INSTRUCTIONS, json.dumps(payload, ensure_ascii=False)]
                 )
                 self.model = model
                 usage = self._usage(response)
