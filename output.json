@@ -19,7 +19,7 @@
         {
           "name": "Kin Lane",
           "role": "Chief Evangelist",
-          "linkedin_url": null,
+          "linkedin_url": "https://www.linkedin.com/in/kinlane",
           "evidence": {
             "source_url": "https://www.postman.com/company/press-media/",
             "quote": "Postman’s Chief Evangelist Kin Lane Releases New Book on the API-First Transformation",
@@ -38,34 +38,34 @@
         },
         {
           "name": "Ankit Sobti",
-          "role": null,
-          "linkedin_url": "https://www.linkedin.com/in/sobtiankit",
+          "role": "co-founder",
+          "linkedin_url": "https://www.linkedin.com/in/ankitsobti",
           "evidence": {
             "source_url": "https://www.postman.com/company/about-postman/",
-            "quote": "As the tool's usage quickly exploded, Abhinav recruited two of his former colleagues, Ankit Sobti and Abhijit Kane, to help him create Postman, Inc.",
+            "quote": "Abhinav recruited two of his former colleagues, Ankit Sobti and Abhijit Kane, to help him create Postman, Inc. Postman is now the world's leading API platform, and the three founders still lead the company to this day.",
             "verified": true
           }
         },
         {
           "name": "Abhijit Kane",
-          "role": null,
-          "linkedin_url": null,
+          "role": "co-founder",
+          "linkedin_url": "https://www.linkedin.com/in/abhijitkane",
           "evidence": {
             "source_url": "https://www.postman.com/company/about-postman/",
-            "quote": "As the tool's usage quickly exploded, Abhinav recruited two of his former colleagues, Ankit Sobti and Abhijit Kane, to help him create Postman, Inc.",
+            "quote": "Abhinav recruited two of his former colleagues, Ankit Sobti and Abhijit Kane, to help him create Postman, Inc. Postman is now the world's leading API platform, and the three founders still lead the company to this day.",
             "verified": true
           }
         }
       ],
-      "data_confidence_score": 0.95,
+      "data_confidence_score": 1.0,
       "confidence_breakdown": {
         "fill_rate": 1.0,
         "verified_evidence_rate": 1.0,
         "source_diversity": 1.0,
         "email_confirmation": 1.0,
-        "linkedin_validity": 0.5,
+        "linkedin_validity": 1.0,
         "contradiction_penalty": 0.0,
-        "score": 0.95
+        "score": 1.0
       },
       "evidence": {
         "company_overview": {
@@ -103,12 +103,12 @@
           },
           {
             "source_url": "https://www.postman.com/company/about-postman/",
-            "quote": "As the tool's usage quickly exploded, Abhinav recruited two of his former colleagues, Ankit Sobti and Abhijit Kane, to help him create Postman, Inc.",
+            "quote": "Abhinav recruited two of his former colleagues, Ankit Sobti and Abhijit Kane, to help him create Postman, Inc. Postman is now the world's leading API platform, and the three founders still lead the company to this day.",
             "verified": true
           },
           {
             "source_url": "https://www.postman.com/company/about-postman/",
-            "quote": "As the tool's usage quickly exploded, Abhinav recruited two of his former colleagues, Ankit Sobti and Abhijit Kane, to help him create Postman, Inc.",
+            "quote": "Abhinav recruited two of his former colleagues, Ankit Sobti and Abhijit Kane, to help him create Postman, Inc. Postman is now the world's leading API platform, and the three founders still lead the company to this day.",
             "verified": true
           }
         ]
@@ -121,18 +121,18 @@
       "errors": [],
       "token_usage": {
         "model": "gemini-2.5-flash",
-        "prompt_tokens": 8106,
-        "candidate_tokens": 1545,
-        "total_tokens": 15132,
-        "estimated_cost_usd": 0.002142
+        "prompt_tokens": 8116,
+        "candidate_tokens": 1791,
+        "total_tokens": 22629,
+        "estimated_cost_usd": 0.002292
       }
     },
     {
       "domain": "supabase.com",
       "homepage_url": "https://supabase.com",
       "status": "ok",
-      "company_overview": "Supabase offers predictable pricing plans that enable users to start building for free, collaborate with their team, and scale to millions of users. These plans are structured to support everything from passion projects and simple websites to large-scale production applications.",
-      "target_audience_icp": "The product is built for developers and the community who are looking for transparent, inspectable, and community-owned developer tools to build and scale applications.",
+      "company_overview": "Supabase offers scalable features that can accelerate business growth and app development. Businesses can book a demo and set up a trial Enterprise account to see these features.",
+      "target_audience_icp": "Businesses and developers seeking to accelerate their growth and app development, particularly those interested in enterprise accounts.",
       "contact_points": [
         "legal@supabase.com",
         "privacy@supabase.com",
@@ -144,7 +144,7 @@
         {
           "name": "Paul Copplestone",
           "role": null,
-          "linkedin_url": "https://www.linkedin.com/in/paulcopplestone",
+          "linkedin_url": null,
           "evidence": {
             "source_url": "https://supabase.com/company",
             "quote": "Elixir at Supabase with Paul Copplestone",
@@ -153,34 +153,34 @@
         },
         {
           "name": "Tracy Lane",
-          "role": "General Counsel",
+          "role": "General Counsel of Supabase, Inc.",
           "linkedin_url": null,
           "evidence": {
             "source_url": "https://supabase.com/contact-us",
-            "quote": "Tracy Lane, General Counsel of Supabase, Inc., serves in that role.",
+            "quote": "Attn: Tracy LaneIn jurisdictions that require the designation of a Grievance Officer or similar compliance contact, Tracy Lane, General Counsel of Supabase, Inc., serves in that role.",
             "verified": true
           }
         }
       ],
-      "data_confidence_score": 0.95,
+      "data_confidence_score": 0.9,
       "confidence_breakdown": {
         "fill_rate": 1.0,
         "verified_evidence_rate": 1.0,
         "source_diversity": 1.0,
         "email_confirmation": 1.0,
-        "linkedin_validity": 0.5,
+        "linkedin_validity": 0.0,
         "contradiction_penalty": 0.0,
-        "score": 0.95
+        "score": 0.9
       },
       "evidence": {
         "company_overview": {
-          "source_url": "https://supabase.com/pricing",
-          "quote": "Predictable pricing, designed to scale Start building for free, collaborate with your team, then scale to millions of users",
+          "source_url": "https://supabase.com/contact/sales",
+          "quote": "Book a demo and set up a trial Enterprise account to see how Supabase's scalable features can accelerate your business growth and app development.",
           "verified": true
         },
         "target_audience_icp": {
-          "source_url": "https://supabase.com/",
-          "quote": "Supabase is built in the open because we believe great developer tools should be transparent, inspectable, and owned by the community.",
+          "source_url": "https://supabase.com/contact/sales",
+          "quote": "Book a demo and set up a trial Enterprise account to see how Supabase's scalable features can accelerate your business growth and app development.",
           "verified": true
         },
         "contact_points": [
@@ -218,7 +218,7 @@
           },
           {
             "source_url": "https://supabase.com/contact-us",
-            "quote": "Tracy Lane, General Counsel of Supabase, Inc., serves in that role.",
+            "quote": "Attn: Tracy LaneIn jurisdictions that require the designation of a Grievance Officer or similar compliance contact, Tracy Lane, General Counsel of Supabase, Inc., serves in that role.",
             "verified": true
           }
         ]
@@ -227,27 +227,25 @@
         "https://supabase.com/",
         "https://supabase.com/company",
         "https://supabase.com/contact/sales",
-        "https://supabase.com/contact-us",
-        "https://supabase.com/pricing"
+        "https://supabase.com/contact-us"
       ],
       "errors": [],
       "token_usage": {
         "model": "gemini-2.5-flash",
-        "prompt_tokens": 10760,
-        "candidate_tokens": 1429,
-        "total_tokens": 30347,
-        "estimated_cost_usd": 0.002471
+        "prompt_tokens": 6113,
+        "candidate_tokens": 1478,
+        "total_tokens": 14536,
+        "estimated_cost_usd": 0.001804
       }
     },
     {
       "domain": "vapi.ai",
       "homepage_url": "https://vapi.ai",
       "status": "ok",
-      "company_overview": "Vapi provides a fully managed platform for building and deploying voice AI agents. This platform allows users to own and operate their agents, models, and data without needing to build infrastructure from scratch.",
-      "target_audience_icp": "The product is built for builders and enterprises looking to deploy advanced voice AI agents, offering a unified platform with enterprise-grade capabilities for scale.",
+      "company_overview": "Vapi provides a platform for building and deploying voice AI agents, as showcased by their product updates and insights. Their offerings include tools for scaling outbound calling, testing voice agents, and ensuring enterprise-grade audio security.",
+      "target_audience_icp": "Vapi's product is built for enterprises and developers seeking to deploy voice AI solutions at scale, including those in healthcare, automotive, and call center industries.",
       "contact_points": [
-        "talent@vapi.ai",
-        "talent@vapi.ai)to"
+        "talent@vapi.ai"
       ],
       "key_leadership": [
         {
@@ -257,6 +255,26 @@
           "evidence": {
             "source_url": "https://vapi.ai/",
             "quote": "Jason Mitura VP of Software Development",
+            "verified": true
+          }
+        },
+        {
+          "name": "Nathalie Criou",
+          "role": "VP of Product",
+          "linkedin_url": null,
+          "evidence": {
+            "source_url": "https://vapi.ai/blog",
+            "quote": "Driving the future of Voice: Meet Vapi's New VP of Product",
+            "verified": true
+          }
+        },
+        {
+          "name": "Jayson Noland",
+          "role": "CFO",
+          "linkedin_url": null,
+          "evidence": {
+            "source_url": "https://vapi.ai/blog",
+            "quote": "Meet Jayson Noland, Vapi's New CFO and The Numbers Leader Betting Big on Voice",
             "verified": true
           }
         }
@@ -273,13 +291,13 @@
       },
       "evidence": {
         "company_overview": {
-          "source_url": "https://vapi.ai/pricing",
-          "quote": "A fully managed platformNo need to build infrastructure from scratch.ControlYou own and operate your agents, models, and data",
+          "source_url": "https://vapi.ai/blog",
+          "quote": "Introducing Vapi CLI: The Best Developer Experience for Building Voice AI Agents",
           "verified": true
         },
         "target_audience_icp": {
-          "source_url": "https://vapi.ai/",
-          "quote": "Voice agents for builders",
+          "source_url": "https://vapi.ai/blog",
+          "quote": "Introducing Enhanced Security Mode: Enterprise-Grade Audio Security for Voice AI",
           "verified": true
         },
         "contact_points": [
@@ -294,6 +312,16 @@
             "source_url": "https://vapi.ai/",
             "quote": "Jason Mitura VP of Software Development",
             "verified": true
+          },
+          {
+            "source_url": "https://vapi.ai/blog",
+            "quote": "Driving the future of Voice: Meet Vapi's New VP of Product",
+            "verified": true
+          },
+          {
+            "source_url": "https://vapi.ai/blog",
+            "quote": "Meet Jayson Noland, Vapi's New CFO and The Numbers Leader Betting Big on Voice",
+            "verified": true
           }
         ]
       },
@@ -301,23 +329,24 @@
         "https://vapi.ai/",
         "https://vapi.ai/pricing",
         "https://vapi.ai/customers",
-        "https://vapi.ai/careers"
+        "https://vapi.ai/careers",
+        "https://vapi.ai/blog"
       ],
       "errors": [],
       "token_usage": {
         "model": "gemini-2.5-flash",
-        "prompt_tokens": 5917,
-        "candidate_tokens": 1108,
-        "total_tokens": 15460,
-        "estimated_cost_usd": 0.001552
+        "prompt_tokens": 10090,
+        "candidate_tokens": 1149,
+        "total_tokens": 84654,
+        "estimated_cost_usd": 0.002204
       }
     }
   ],
   "token_usage": {
     "model": "gemini-2.5-flash",
-    "prompt_tokens": 24783,
-    "candidate_tokens": 4082,
-    "total_tokens": 60939,
-    "estimated_cost_usd": 0.006165
+    "prompt_tokens": 24319,
+    "candidate_tokens": 4418,
+    "total_tokens": 121819,
+    "estimated_cost_usd": 0.0063
   }
 }
