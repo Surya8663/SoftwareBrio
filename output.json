@@ -1,0 +1,323 @@
+{
+  "targets": [
+    "postman.com",
+    "supabase.com",
+    "vapi.ai"
+  ],
+  "results": [
+    {
+      "domain": "postman.com",
+      "homepage_url": "https://postman.com",
+      "status": "ok",
+      "company_overview": "Postman is an AI-native API Platform that helps develop, test, manage, and distribute APIs and services. It is designed for enterprise scale and built for engineers.",
+      "target_audience_icp": "The product is built for engineers and designed for enterprise scale.",
+      "contact_points": [
+        "info@postman.com",
+        "info-jp@postman.com"
+      ],
+      "key_leadership": [
+        {
+          "name": "Kin Lane",
+          "role": "Chief Evangelist",
+          "linkedin_url": null,
+          "evidence": {
+            "source_url": "https://www.postman.com/company/press-media/",
+            "quote": "Postman’s Chief Evangelist Kin Lane Releases New Book on the API-First Transformation",
+            "verified": true
+          }
+        },
+        {
+          "name": "Abhinav Asthana",
+          "role": "CEO and co-founder",
+          "linkedin_url": "https://www.linkedin.com/in/abhinavasthana",
+          "evidence": {
+            "source_url": "https://www.postman.com/company/about-postman/",
+            "quote": "Abhinav Asthana, Postman's CEO and co-founder, set out to create a tool that would simplify the API testing process.",
+            "verified": true
+          }
+        },
+        {
+          "name": "Ankit Sobti",
+          "role": null,
+          "linkedin_url": "https://www.linkedin.com/in/sobtiankit",
+          "evidence": {
+            "source_url": "https://www.postman.com/company/about-postman/",
+            "quote": "As the tool's usage quickly exploded, Abhinav recruited two of his former colleagues, Ankit Sobti and Abhijit Kane, to help him create Postman, Inc.",
+            "verified": true
+          }
+        },
+        {
+          "name": "Abhijit Kane",
+          "role": null,
+          "linkedin_url": null,
+          "evidence": {
+            "source_url": "https://www.postman.com/company/about-postman/",
+            "quote": "As the tool's usage quickly exploded, Abhinav recruited two of his former colleagues, Ankit Sobti and Abhijit Kane, to help him create Postman, Inc.",
+            "verified": true
+          }
+        }
+      ],
+      "data_confidence_score": 0.95,
+      "confidence_breakdown": {
+        "fill_rate": 1.0,
+        "verified_evidence_rate": 1.0,
+        "source_diversity": 1.0,
+        "email_confirmation": 1.0,
+        "linkedin_validity": 0.5,
+        "contradiction_penalty": 0.0,
+        "score": 0.95
+      },
+      "evidence": {
+        "company_overview": {
+          "source_url": "https://www.postman.com/",
+          "quote": "The AI-native API Platform Develop, test, manage, and distribute APIs and services. Built for engineers. Designed for enterprise scale.",
+          "verified": true
+        },
+        "target_audience_icp": {
+          "source_url": "https://www.postman.com/",
+          "quote": "Built for engineers. Designed for enterprise scale.",
+          "verified": true
+        },
+        "contact_points": [
+          {
+            "source_url": "https://www.postman.com/company/about-postman/",
+            "quote": "okyo 100-6510, Japan\n\n〒100-6510東京都代田区丸の内1-5-1新丸の内ビルディング10F\n\n+81-3-6843-3777\n[info-jp@postman.com](mailto:info-jp@postman.com)\n\n[Get directions →](https://www.google.com/maps/pl",
+            "verified": true
+          },
+          {
+            "source_url": "https://www.postman.com/company/about-postman/",
+            "quote": "arket Street\nSteuart Tower\nSuite 0800\nSan Francisco, CA 94105\n\n+1 415 796 6470\n[info@postman.com](mailto:info@postman.com)\n\n[Get directions →](https://www.google.com/maps/place",
+            "verified": true
+          }
+        ],
+        "key_leadership": [
+          {
+            "source_url": "https://www.postman.com/company/press-media/",
+            "quote": "Postman’s Chief Evangelist Kin Lane Releases New Book on the API-First Transformation",
+            "verified": true
+          },
+          {
+            "source_url": "https://www.postman.com/company/about-postman/",
+            "quote": "Abhinav Asthana, Postman's CEO and co-founder, set out to create a tool that would simplify the API testing process.",
+            "verified": true
+          },
+          {
+            "source_url": "https://www.postman.com/company/about-postman/",
+            "quote": "As the tool's usage quickly exploded, Abhinav recruited two of his former colleagues, Ankit Sobti and Abhijit Kane, to help him create Postman, Inc.",
+            "verified": true
+          },
+          {
+            "source_url": "https://www.postman.com/company/about-postman/",
+            "quote": "As the tool's usage quickly exploded, Abhinav recruited two of his former colleagues, Ankit Sobti and Abhijit Kane, to help him create Postman, Inc.",
+            "verified": true
+          }
+        ]
+      },
+      "pages_visited": [
+        "https://www.postman.com/",
+        "https://www.postman.com/company/press-media/",
+        "https://www.postman.com/company/about-postman/"
+      ],
+      "errors": [],
+      "token_usage": {
+        "model": "gemini-2.5-flash",
+        "prompt_tokens": 8106,
+        "candidate_tokens": 1545,
+        "total_tokens": 15132,
+        "estimated_cost_usd": 0.002142
+      }
+    },
+    {
+      "domain": "supabase.com",
+      "homepage_url": "https://supabase.com",
+      "status": "ok",
+      "company_overview": "Supabase offers predictable pricing plans that enable users to start building for free, collaborate with their team, and scale to millions of users. These plans are structured to support everything from passion projects and simple websites to large-scale production applications.",
+      "target_audience_icp": "The product is built for developers and the community who are looking for transparent, inspectable, and community-owned developer tools to build and scale applications.",
+      "contact_points": [
+        "legal@supabase.com",
+        "privacy@supabase.com",
+        "abuse@supabase.com",
+        "security@supabase.com",
+        "help-events@supabase.com"
+      ],
+      "key_leadership": [
+        {
+          "name": "Paul Copplestone",
+          "role": null,
+          "linkedin_url": "https://www.linkedin.com/in/paulcopplestone",
+          "evidence": {
+            "source_url": "https://supabase.com/company",
+            "quote": "Elixir at Supabase with Paul Copplestone",
+            "verified": true
+          }
+        },
+        {
+          "name": "Tracy Lane",
+          "role": "General Counsel",
+          "linkedin_url": null,
+          "evidence": {
+            "source_url": "https://supabase.com/contact-us",
+            "quote": "Tracy Lane, General Counsel of Supabase, Inc., serves in that role.",
+            "verified": true
+          }
+        }
+      ],
+      "data_confidence_score": 0.95,
+      "confidence_breakdown": {
+        "fill_rate": 1.0,
+        "verified_evidence_rate": 1.0,
+        "source_diversity": 1.0,
+        "email_confirmation": 1.0,
+        "linkedin_validity": 0.5,
+        "contradiction_penalty": 0.0,
+        "score": 0.95
+      },
+      "evidence": {
+        "company_overview": {
+          "source_url": "https://supabase.com/pricing",
+          "quote": "Predictable pricing, designed to scale Start building for free, collaborate with your team, then scale to millions of users",
+          "verified": true
+        },
+        "target_audience_icp": {
+          "source_url": "https://supabase.com/",
+          "quote": "Supabase is built in the open because we believe great developer tools should be transparent, inspectable, and owned by the community.",
+          "verified": true
+        },
+        "contact_points": [
+          {
+            "source_url": "https://supabase.com/contact-us",
+            "quote": "s, or how Supabase processes personal information.\n\n## Abuse & Acceptable Use\n\n[abuse@supabase.com](mailto:abuse@supabase.com)\n\nTo report suspected violations of our [Acceptable",
+            "verified": true
+          },
+          {
+            "source_url": "https://supabase.com/contact-us",
+            "quote": "security incidents involving Supabase infrastructure or services.\n\n## Events\n\n[help-events@supabase.com](mailto:help-events@supabase.com)\n\nFor hackathon or event sponsorship requests.",
+            "verified": true
+          },
+          {
+            "source_url": "https://supabase.com/contact-us",
+            "quote": "he right channel below so we can get you to the right team quickly.\n\n## Legal\n\n[legal@supabase.com](mailto:legal@supabase.com)\n\nFor general legal inquiries.\n\n## Privacy\n\n[privacy",
+            "verified": true
+          },
+          {
+            "source_url": "https://supabase.com/contact-us",
+            "quote": "ase.com](mailto:legal@supabase.com)\n\nFor general legal inquiries.\n\n## Privacy\n\n[privacy@supabase.com](mailto:privacy@supabase.com)\n\nFor questions about personal data, data subject",
+            "verified": true
+          },
+          {
+            "source_url": "https://supabase.com/contact-us",
+            "quote": "hing, malware, or unlawful activity involving Supabase services.\n\n## Security\n\n[security@supabase.com](mailto:security@supabase.com)\n\nTo responsibly disclose potential security vuln",
+            "verified": true
+          }
+        ],
+        "key_leadership": [
+          {
+            "source_url": "https://supabase.com/company",
+            "quote": "Elixir at Supabase with Paul Copplestone",
+            "verified": true
+          },
+          {
+            "source_url": "https://supabase.com/contact-us",
+            "quote": "Tracy Lane, General Counsel of Supabase, Inc., serves in that role.",
+            "verified": true
+          }
+        ]
+      },
+      "pages_visited": [
+        "https://supabase.com/",
+        "https://supabase.com/company",
+        "https://supabase.com/contact/sales",
+        "https://supabase.com/contact-us",
+        "https://supabase.com/pricing"
+      ],
+      "errors": [],
+      "token_usage": {
+        "model": "gemini-2.5-flash",
+        "prompt_tokens": 10760,
+        "candidate_tokens": 1429,
+        "total_tokens": 30347,
+        "estimated_cost_usd": 0.002471
+      }
+    },
+    {
+      "domain": "vapi.ai",
+      "homepage_url": "https://vapi.ai",
+      "status": "ok",
+      "company_overview": "Vapi provides a fully managed platform for building and deploying voice AI agents. This platform allows users to own and operate their agents, models, and data without needing to build infrastructure from scratch.",
+      "target_audience_icp": "The product is built for builders and enterprises looking to deploy advanced voice AI agents, offering a unified platform with enterprise-grade capabilities for scale.",
+      "contact_points": [
+        "talent@vapi.ai",
+        "talent@vapi.ai)to"
+      ],
+      "key_leadership": [
+        {
+          "name": "Jason Mitura",
+          "role": "VP of Software Development",
+          "linkedin_url": null,
+          "evidence": {
+            "source_url": "https://vapi.ai/",
+            "quote": "Jason Mitura VP of Software Development",
+            "verified": true
+          }
+        }
+      ],
+      "data_confidence_score": 0.9,
+      "confidence_breakdown": {
+        "fill_rate": 1.0,
+        "verified_evidence_rate": 1.0,
+        "source_diversity": 1.0,
+        "email_confirmation": 1.0,
+        "linkedin_validity": 0.0,
+        "contradiction_penalty": 0.0,
+        "score": 0.9
+      },
+      "evidence": {
+        "company_overview": {
+          "source_url": "https://vapi.ai/pricing",
+          "quote": "A fully managed platformNo need to build infrastructure from scratch.ControlYou own and operate your agents, models, and data",
+          "verified": true
+        },
+        "target_audience_icp": {
+          "source_url": "https://vapi.ai/",
+          "quote": "Voice agents for builders",
+          "verified": true
+        },
+        "contact_points": [
+          {
+            "source_url": "https://vapi.ai/careers",
+            "quote": "sonal development.\n\n## Want to be the change in voice technology?\n\nReach out to[Talent@vapi.ai](mailto:Talent@vapi.ai)to speak to our Talent team.",
+            "verified": true
+          }
+        ],
+        "key_leadership": [
+          {
+            "source_url": "https://vapi.ai/",
+            "quote": "Jason Mitura VP of Software Development",
+            "verified": true
+          }
+        ]
+      },
+      "pages_visited": [
+        "https://vapi.ai/",
+        "https://vapi.ai/pricing",
+        "https://vapi.ai/customers",
+        "https://vapi.ai/careers"
+      ],
+      "errors": [],
+      "token_usage": {
+        "model": "gemini-2.5-flash",
+        "prompt_tokens": 5917,
+        "candidate_tokens": 1108,
+        "total_tokens": 15460,
+        "estimated_cost_usd": 0.001552
+      }
+    }
+  ],
+  "token_usage": {
+    "model": "gemini-2.5-flash",
+    "prompt_tokens": 24783,
+    "candidate_tokens": 4082,
+    "total_tokens": 60939,
+    "estimated_cost_usd": 0.006165
+  }
+}
