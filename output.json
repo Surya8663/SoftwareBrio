@@ -265,16 +265,6 @@
       ],
       "key_leadership": [
         {
-          "name": "Jason Mitura",
-          "role": "VP of Software Development",
-          "linkedin_url": null,
-          "evidence": {
-            "source_url": "https://vapi.ai/",
-            "quote": "Jason Mitura VP of Software Development",
-            "verified": true
-          }
-        },
-        {
           "name": "Nathalie Criou",
           "role": "VP of Product",
           "linkedin_url": null,
@@ -358,10 +348,9 @@
       },
       "linkedin_search": {
         "attempted": true,
-        "queries": 3,
+        "queries": 2,
         "filled": [],
         "still_missing": [
-          "Jason Mitura",
           "Nathalie Criou",
           "Jayson Noland"
         ]

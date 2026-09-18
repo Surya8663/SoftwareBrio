@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import base64
 import html as html_lib
 import re
 import time
@@ -93,24 +94,50 @@ def search_profile_url(
 
 def _bing_result_targets(html: str, name: str) -> list[str]:
     parts = [p.lower() for p in re.split(r"\s+", name.strip()) if len(p) > 1]
+    last = parts[-1] if parts else ""
     targets: list[str] = []
+    seen: set[str] = set()
     for href, title_html in re.findall(
         r'<h2[^>]*>\s*<a[^>]+href="([^"]+)"[^>]*>(.*?)</a>',
         html,
         flags=re.I | re.S,
     ):
         title = re.sub(r"<[^>]+>", " ", html_lib.unescape(title_html))
-        title = re.sub(r"\s+", " ", title).strip()
-        blob = title.lower()
-        if "linkedin" not in blob:
-            continue
-        if parts and not all(part in blob for part in parts):
-            continue
+        title = re.sub(r"\s+", " ", title).strip().lower()
         url = html_lib.unescape(href)
         if url.startswith("/"):
             url = "https://www.bing.com" + url
-        targets.append(url)
+        decoded = _decode_bing_redirect(url)
+        dest = decoded or url
+        name_in_title = bool(parts) and all(part in title for part in parts)
+        last_in_dest = bool(last) and last in dest.lower()
+        if valid_linkedin_url(dest) and (name_in_title or last_in_dest):
+            key = dest.split("?")[0].rstrip("/").lower()
+            if key not in seen:
+                seen.add(key)
+                targets.append(dest.split("?")[0].rstrip("/"))
+            continue
+        if "linkedin" in title and name_in_title:
+            if url not in seen:
+                seen.add(url)
+                targets.append(url)
     return targets
+
+
+def _decode_bing_redirect(url: str) -> str | None:
+    parsed = urlparse(url.replace("&amp;", "&"))
+    raw = (parse_qs(parsed.query).get("u") or [None])[0]
+    if not raw:
+        return None
+    raw = unquote(raw)
+    if raw.startswith("a1"):
+        raw = raw[2:]
+    pad = "=" * (-len(raw) % 4)
+    try:
+        decoded = base64.b64decode(raw + pad).decode("utf-8", "ignore")
+    except Exception:
+        return None
+    return decoded if decoded.startswith("http") else None
 
 
 def _follow(crawler: BrowserCrawler, url: str) -> str | None:

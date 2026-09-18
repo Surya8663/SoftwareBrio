@@ -65,6 +65,11 @@ class BrowserCrawler:
         self._context = self._browser.new_context(
             java_script_enabled=True,
             locale="en-US",
+            user_agent=(
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+            ),
+            viewport={"width": 1280, "height": 800},
         )
         self._context.set_default_timeout(self.timeout_ms)
         return self

@@ -17,6 +17,7 @@ PATH_SIGNALS: list[tuple[re.Pattern[str], float, str]] = [
     (re.compile(r"/people", re.I), 0.88, "people"),
     (re.compile(r"/contact", re.I), 0.90, "contact"),
     (re.compile(r"/pricing", re.I), 0.72, "pricing"),
+    (re.compile(r"/blog/.+(meet|founder|cfo|ceo|appoint|leadership)", re.I), 0.82, "exec-blog"),
     (re.compile(r"/customers?", re.I), 0.12, "customers"),
     (re.compile(r"/product", re.I), 0.50, "product"),
     (re.compile(r"/blog", re.I), 0.25, "blog"),

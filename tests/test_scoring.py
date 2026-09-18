@@ -3,8 +3,9 @@ from lead_enrichment.scoring.confidence import compute_confidence, result_status
 from lead_enrichment.scoring.evidence import lock_evidence, quote_supported
 from lead_enrichment.scoring.facts import extract_emails, valid_linkedin_url
 from lead_enrichment.models import DomainResult, LeadershipPerson
-from lead_enrichment.llm.search import _best_hit, _unwrap
+from lead_enrichment.llm.search import _best_hit, _decode_bing_redirect, _unwrap
 from lead_enrichment.scoring.leadership import is_internal_leader
+import base64
 
 
 def test_quote_supported_requires_verbatim_span() -> None:
@@ -176,6 +177,13 @@ def test_unwrap_duckduckgo_redirect() -> None:
     assert "linkedin.com/in/abhinavasthana" in _unwrap(raw)
 
 
+def test_decode_bing_base64_u_param() -> None:
+    payload = "https://www.linkedin.com/in/paulcopplestone"
+    raw = "a1" + base64.b64encode(payload.encode()).decode().rstrip("=")
+    href = f"https://www.bing.com/ck/a?u={raw}"
+    assert _decode_bing_redirect(href) == payload
+
+
 def test_internal_leader_keeps_founders_drops_customers() -> None:
     founder = LeadershipPerson(
         name="Abhinav Asthana",
@@ -197,3 +205,23 @@ def test_internal_leader_keeps_founders_drops_customers() -> None:
     )
     assert is_internal_leader(founder, "postman.com") is True
     assert is_internal_leader(customer, "supabase.com") is False
+    testimonial = LeadershipPerson(
+        name="Jason Mitura",
+        role="VP of Software Development",
+        evidence=EvidenceSpan(
+            source_url="https://vapi.ai/",
+            quote="Jason Mitura VP of Software Development",
+            verified=True,
+        ),
+    )
+    assert is_internal_leader(testimonial, "vapi.ai") is False
+    vp = LeadershipPerson(
+        name="Nathalie Criou",
+        role="VP of Product",
+        evidence=EvidenceSpan(
+            source_url="https://vapi.ai/blog/meet-nathalie-criou",
+            quote="Meet Vapi's New VP of Product",
+            verified=True,
+        ),
+    )
+    assert is_internal_leader(vp, "vapi.ai") is True
