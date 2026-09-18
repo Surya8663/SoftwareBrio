@@ -23,6 +23,13 @@ dependencies = [
 [project.scripts]
 lead-enrichment = "lead_enrichment.cli:app"
 
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
 [tool.setuptools.packages.find]
 where = ["src"]
 

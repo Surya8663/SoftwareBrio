@@ -14,6 +14,7 @@ from lead_enrichment.models import (
     DomainResult,
     EvidenceSpan,
     LeadershipPerson,
+    LinkedInSearchReport,
     PageDocument,
     RunReport,
     TokenUsage,
@@ -57,6 +58,7 @@ def enrich_one(
     usage = TokenUsage(model=settings.gemini_model)
     history: list[float] = []
 
+    search_report = LinkedInSearchReport()
     overview: str | None = None
     overview_ev: EvidenceSpan | None = None
     icp: str | None = None
@@ -197,10 +199,13 @@ def enrich_one(
         and any(not valid_linkedin_url(p.linkedin_url) for p in leadership)
     ):
         try:
-            leadership, search_usage = fill_missing_linkedin(llm, domain, leadership)
+            leadership, search_usage, search_report = fill_missing_linkedin(
+                llm, domain, leadership
+            )
             usage = usage.add(search_usage)
         except Exception as exc:  # noqa: BLE001
             errors.append(f"linkedin_search: {type(exc).__name__}: {exc}")
+            search_report = search_report.model_copy(update={"attempted": True})
 
     evidence: dict[str, EvidenceSpan | list[EvidenceSpan]] = {}
     if overview_ev:
@@ -230,6 +235,7 @@ def enrich_one(
         pages_visited=[p.url for p in pages],
         errors=errors,
         token_usage=usage,
+        linkedin_search=search_report,
     )
     result.status = result_status(result)  # type: ignore[assignment]
     if not pages and errors:

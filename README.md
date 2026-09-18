@@ -4,6 +4,16 @@ Python pipeline that takes company domains, crawls their public sites with Playw
 
 This is the take-home for SoftwareBrio's AI Engineer Intern role.
 
+## Why Gemini (not OpenAI / Anthropic / Groq)
+
+The brief allows “an LLM of your choice.” Gemini 2.5 Flash is used because a **single** provider covers all three bonuses without extra keys or scraping Google SERPs:
+
+1. Native JSON `response_schema` (Pydantic structured output).
+2. **Google Search grounding** for missing leadership LinkedIn URLs (`ENABLE_LINKEDIN_SEARCH=true` by default).
+3. Usage metadata for per-domain token + USD cost tracking.
+
+The crawl loop is a custom information-gain planner (`agent/planner.py`: missing fields → score links → fetch → extract → stop), which is the spec’s “custom multi-step tool-calling loop” — not LangGraph.
+
 ## Novel piece
 
 Typical extractors ask the model "how confident are you?" That number is cheap to fake.
@@ -54,7 +64,16 @@ python -m lead_enrichment run --domains postman.com --max-pages 5 --out output.j
 | `PAGE_TIMEOUT_MS` | Playwright timeout |
 | `ENABLE_LINKEDIN_SEARCH` | Gemini Google Search grounding for missing founder LinkedIn URLs |
 
-Never commit `.env`.
+Never commit `.env`. `ENABLE_LINKEDIN_SEARCH` defaults to `true` so `output.json` includes a `linkedin_search` object (`attempted`, `queries`, `filled`, `still_missing`).
+
+## Tests
+
+```powershell
+pip install -e ".[dev]"
+python -m pytest
+```
+
+Covers evidence-locking (drop quotes that are not on the page), deterministic confidence math, email sanitization, and LinkedIn hit matching.
 
 ## Output
 

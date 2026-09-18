@@ -92,6 +92,13 @@ class CandidateLink(BaseModel):
     reason: str
 
 
+class LinkedInSearchReport(BaseModel):
+    attempted: bool = False
+    queries: int = 0
+    filled: list[str] = Field(default_factory=list)
+    still_missing: list[str] = Field(default_factory=list)
+
+
 class DomainResult(BaseModel):
     domain: str
     homepage_url: str
@@ -106,6 +113,7 @@ class DomainResult(BaseModel):
     pages_visited: list[str] = Field(default_factory=list)
     errors: list[str] = Field(default_factory=list)
     token_usage: TokenUsage = Field(default_factory=TokenUsage)
+    linkedin_search: LinkedInSearchReport = Field(default_factory=LinkedInSearchReport)
 
 
 class RunReport(BaseModel):
