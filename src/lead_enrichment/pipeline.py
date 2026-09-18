@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from urllib.parse import urlparse
+
 from lead_enrichment.agent.planner import completeness, missing_fields, pick_next, should_stop
 from lead_enrichment.config import Settings
 from lead_enrichment.crawler.browser import BrowserCrawler, normalize_homepage
@@ -262,8 +264,6 @@ def _merge_urls(existing: list[str], new: list[str]) -> list[str]:
 
 
 def _source_rank(url: str) -> int:
-    from urllib.parse import urlparse
-
     path = (urlparse(url).path or "/").lower().rstrip("/") or "/"
     if path == "/":
         return 6
@@ -274,6 +274,9 @@ def _source_rank(url: str) -> int:
     if "/customer" in path:
         return 1
     return 4
+
+
+def _email_span(addr: str, pages: list[PageDocument]) -> EvidenceSpan | None:
     needle = addr.lower()
     for page in pages:
         idx = page.markdown.lower().find(needle)
