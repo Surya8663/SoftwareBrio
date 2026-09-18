@@ -28,10 +28,15 @@ NOISE_EMAIL_PARTS = (
 
 def extract_emails(text: str) -> list[str]:
     found = set(EMAIL_RE.findall(text))
-    found.update(MAILTO_RE.findall(text))
+    for mailto in MAILTO_RE.findall(text):
+        match = EMAIL_RE.search(mailto)
+        if match:
+            found.add(match.group(0))
     cleaned: list[str] = []
     for raw in found:
         email = raw.strip().strip(".,);").lower()
+        if not EMAIL_RE.fullmatch(email):
+            continue
         if not email or any(part in email for part in NOISE_EMAIL_PARTS):
             continue
         if email.endswith((".png", ".jpg", ".svg", ".webp", ".css", ".js")):

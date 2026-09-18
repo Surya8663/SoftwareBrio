@@ -136,7 +136,10 @@ def enrich_one(
                 icp_ev = icp_locked
 
         for proposed in extraction.contact_emails:
-            addr = proposed.strip().lower()
+            addr_match = extract_emails(proposed)
+            if not addr_match:
+                continue
+            addr = addr_match[0]
             if addr in emails:
                 continue
             if addr in {e.lower() for e in regex_emails}:
