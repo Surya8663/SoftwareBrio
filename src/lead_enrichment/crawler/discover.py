@@ -24,6 +24,7 @@ PATH_SIGNALS: list[tuple[re.Pattern[str], float, str]] = [
     (re.compile(r"/docs|/documentation", re.I), 0.30, "docs"),
 ]
 
+CASE_STUDY = re.compile(r"/customers?/.+", re.I)
 SKIP_EXT = re.compile(r"\.(pdf|png|jpe?g|gif|svg|webp|zip|mp4|css|js)$", re.I)
 
 
@@ -41,6 +42,8 @@ def discover_candidates(
             continue
         path = urlparse(abs_url).path or "/"
         if SKIP_EXT.search(path):
+            continue
+        if CASE_STUDY.search(path):
             continue
         key = _canonical(abs_url)
         score, reason = _score_path(path, missing_fields)

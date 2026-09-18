@@ -31,14 +31,14 @@ def fill_missing_linkedin(
     listing = "\n".join(
         f"- {p.name}" + (f" ({p.role})" if p.role else "") for p in missing
     )
-    response = client.client.models.generate_content(
+    chat = client.client.chats.create(
         model=client.model,
-        contents=SEARCH_PROMPT.format(people=listing, domain=domain),
         config=types.GenerateContentConfig(
             temperature=0.1,
             tools=[types.Tool(google_search=types.GoogleSearch())],
         ),
     )
+    response = chat.send_message(SEARCH_PROMPT.format(people=listing, domain=domain))
     usage = client._usage(response)
     hits = _hits_from_response(response)
     by_name = {h["name"].strip().lower(): h for h in hits if h.get("name")}
@@ -109,9 +109,6 @@ def _url_mentioning(hits: list[dict[str, str]], name: str) -> str | None:
     for hit in hits:
         blob = f"{hit.get('name','')} {hit.get('snippet','')} {hit.get('linkedin_url','')}".lower()
         if token and token in blob and valid_linkedin_url(hit.get("linkedin_url")):
-            return hit["linkedin_url"]
-    for hit in hits:
-        if valid_linkedin_url(hit.get("linkedin_url")):
             return hit["linkedin_url"]
     return None
 

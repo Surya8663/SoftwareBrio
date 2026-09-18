@@ -118,14 +118,20 @@ def enrich_one(
             continue
 
         ov_ev = lock_evidence(extraction.company_overview_evidence, pages)
-        if extraction.company_overview and ov_ev and not overview:
-            overview = extraction.company_overview.strip()
-            overview_ev = ov_ev
+        if extraction.company_overview and ov_ev:
+            if overview is None or _source_rank(ov_ev.source_url) > _source_rank(
+                overview_ev.source_url if overview_ev else ""
+            ):
+                overview = extraction.company_overview.strip()
+                overview_ev = ov_ev
 
         icp_locked = lock_evidence(extraction.icp_evidence, pages)
-        if extraction.target_audience_icp and icp_locked and not icp:
-            icp = extraction.target_audience_icp.strip()
-            icp_ev = icp_locked
+        if extraction.target_audience_icp and icp_locked:
+            if icp is None or _source_rank(icp_locked.source_url) > _source_rank(
+                icp_ev.source_url if icp_ev else ""
+            ):
+                icp = extraction.target_audience_icp.strip()
+                icp_ev = icp_locked
 
         for proposed in extraction.contact_emails:
             addr = proposed.strip().lower()
@@ -255,7 +261,19 @@ def _merge_urls(existing: list[str], new: list[str]) -> list[str]:
     return out
 
 
-def _email_span(addr: str, pages: list[PageDocument]) -> EvidenceSpan | None:
+def _source_rank(url: str) -> int:
+    from urllib.parse import urlparse
+
+    path = (urlparse(url).path or "/").lower().rstrip("/") or "/"
+    if path == "/":
+        return 6
+    if any(token in path for token in ("/about", "/company", "/team", "/contact")):
+        return 5
+    if "/pricing" in path:
+        return 3
+    if "/customer" in path:
+        return 1
+    return 4
     needle = addr.lower()
     for page in pages:
         idx = page.markdown.lower().find(needle)
