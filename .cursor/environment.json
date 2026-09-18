@@ -1,0 +1,5 @@
+{
+  "name": "Autonomous Lead Enrichment Agent",
+  "user": "ubuntu",
+  "install": "bash .cursor/install.sh"
+}
