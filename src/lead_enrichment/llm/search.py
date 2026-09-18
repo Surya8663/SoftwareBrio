@@ -41,29 +41,19 @@ def fill_missing_linkedin(
     response = chat.send_message(SEARCH_PROMPT.format(people=listing, domain=domain))
     usage = client._usage(response)
     hits = _hits_from_response(response)
-    by_name = {h["name"].strip().lower(): h for h in hits if h.get("name")}
     updated: list[LeadershipPerson] = []
     for person in people:
         if valid_linkedin_url(person.linkedin_url):
             updated.append(person)
             continue
-        hit = by_name.get(person.name.strip().lower())
+        hit = _best_hit(hits, person.name)
         url = hit.get("linkedin_url") if hit else None
-        if not url:
-            # Fall back to any grounded URL whose snippet mentions the person.
-            url = _url_mentioning(hits, person.name)
         if valid_linkedin_url(url):
-            snippet = (hit or {}).get("snippet") or url
             updated.append(
                 person.model_copy(
-                    update={
-                        "linkedin_url": url.split("?")[0].rstrip("/"),
-                        "evidence": person.evidence,
-                    }
+                    update={"linkedin_url": str(url).split("?")[0].rstrip("/")}
                 )
             )
-            # Keep evidence from the site if present; search snippet is not site-locked.
-            _ = snippet
         else:
             updated.append(person)
     return updated, usage
@@ -104,13 +94,22 @@ def _extract_json(text: str) -> str | None:
     return match.group(0) if match else None
 
 
-def _url_mentioning(hits: list[dict[str, str]], name: str) -> str | None:
-    token = name.split()[0].lower() if name.split() else ""
+def _best_hit(hits: list[dict[str, str]], name: str) -> dict[str, str] | None:
+    parts = [p.lower() for p in re.split(r"\s+", name.strip()) if len(p) > 1]
+    if not parts:
+        return None
+    last = parts[-1]
+    ranked: list[tuple[int, dict[str, str]]] = []
     for hit in hits:
-        blob = f"{hit.get('name','')} {hit.get('snippet','')} {hit.get('linkedin_url','')}".lower()
-        if token and token in blob and valid_linkedin_url(hit.get("linkedin_url")):
-            return hit["linkedin_url"]
-    return None
+        if not valid_linkedin_url(hit.get("linkedin_url")):
+            continue
+        blob = f"{hit.get('name', '')} {hit.get('snippet', '')} {hit.get('linkedin_url', '')}".lower()
+        if all(part in blob for part in parts):
+            ranked.append((2, hit))
+        elif len(last) >= 4 and last in (hit.get("linkedin_url") or "").lower():
+            ranked.append((1, hit))
+    ranked.sort(key=lambda item: item[0], reverse=True)
+    return ranked[0][1] if ranked else None
 
 
 def _grounding_urls(response: object) -> list[str]:
